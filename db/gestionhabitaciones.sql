@@ -13,7 +13,7 @@
 createdb -T template0 -O postgres -E UTF-8 hostal
 psql postgres
 grant all privileges on database hostal to fryntiz;
-CREATE USER hostal PASSWORD '123456';
+CREATE USER gestionhabitaciones PASSWORD 'gestionhabitaciones';
 */
 
 --------------------------
