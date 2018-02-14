@@ -21,7 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
         <p>
-            Nota → Este mensaje solo se muestra si estás en modo depuración (Yii Debugger). Tu puedes visualizar este email enviado en la parte de correo del panel para debug.
+            Nota → Este mensaje solo se muestra si estás en modo depuración (Yii Debugger).
+            <br />
+            Tu puedes visualizar este email enviado en la parte de correo del panel para debug.
             <?php if (Yii::$app->mailer->useFileTransport): ?>
                 Because the application is in development mode, the email is not sent but saved as
                 a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
