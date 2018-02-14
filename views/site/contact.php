@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'Formulario de Contacto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -17,12 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            Thank you for contacting us. We will respond to you as soon as possible.
+            Gracias por contactar con nostros. Estaremos pendiente de su mensaje y encantados de responderle lo antes que nos sea posiblle.
         </div>
 
         <p>
-            Note that if you turn on the Yii debugger, you should be able
-            to view the mail message on the mail panel of the debugger.
+            Nota → Este mensaje solo se muestra si estás en modo depuración (Yii Debugger). Tu puedes visualizar este email enviado en la parte de correo del panel para debug.
             <?php if (Yii::$app->mailer->useFileTransport): ?>
                 Because the application is in development mode, the email is not sent but saved as
                 a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
@@ -34,8 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else: ?>
 
         <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us.
-            Thank you.
+            Si tiene cualquier pregunta o necesita contactar por cualquier motivo con nosotros, estaremos encantado de atenderle y responderle.
+            <br/>
+            Puede conseguirlo a través del formulario de contacto un poco más abajo, gracias.
         </p>
 
         <div class="row">
