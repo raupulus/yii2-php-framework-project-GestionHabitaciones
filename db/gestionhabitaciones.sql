@@ -253,12 +253,13 @@ INSERT INTO habitaciones (
 --------------------------
 DROP TABLE IF EXISTS reservas CASCADE; --Elimina la tabla si existiera
 CREATE TABLE reservas (
-    habitaciones_id    BIGINT
+    id               BIGSERIAL UNIQUE,
+    habitaciones_id     BIGINT
                     CONSTRAINT fk_reservas_habitaciones
                     REFERENCES habitaciones(id),
     fecha_entrada    DATE,
-    fecha_salida    DATE,
-    clientes_id        BIGINT
+    fecha_salida     DATE,
+    clientes_id         BIGINT
                     CONSTRAINT fk_reservas_clientes
                     REFERENCES clientes(id),
     precio            DECIMAL(12,2),
