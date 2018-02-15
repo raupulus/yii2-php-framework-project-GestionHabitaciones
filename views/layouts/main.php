@@ -39,6 +39,21 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index']],
+            ['label' => 'Clientes',
+             'items' => [
+                ['label' => 'index', 'url' => ['/clientes/index']],
+                ['label' => 'create', 'url' => ['/clientes/create']],
+            ]],
+            ['label' => 'Habitaciones',
+             'items' => [
+                    ['label' => 'index', 'url' => ['/habitaciones/index']],
+                    ['label' => 'create', 'url' => ['/habitaciones/create']],
+            ]],
+            ['label' => 'Reservas',
+             'items' => [
+                    ['label' => 'index', 'url' => ['/reservas/index']],
+                    ['label' => 'create', 'url' => ['/reservas/create']],
+            ]],
             ['label' => 'Sobre Nosotros', 'url' => ['/site/about']],
             ['label' => 'Contacto', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
