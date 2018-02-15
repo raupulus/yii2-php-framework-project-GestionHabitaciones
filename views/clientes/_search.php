@@ -25,25 +25,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sexo') ?>
 
-    <?php // echo $form->field($model, 'fecha_naci') ?>
+    <?= $form->field($model, 'fecha_naci') ?>
 
-    <?php // echo $form->field($model, 'pais') ?>
+    <?= $form->field($model, 'pais') ?>
 
-    <?php // echo $form->field($model, 'provincia') ?>
+    <?= $form->field($model, 'provincia') ?>
 
-    <?php // echo $form->field($model, 'ciudad') ?>
+    <?= $form->field($model, 'ciudad') ?>
 
     <?= $form->field($model, 'cod_postal') ?>
 
-    <?php // echo $form->field($model, 'direccion') ?>
+    <?= $form->field($model, 'direccion') ?>
 
-    <?= echo $form->field($model, 'telefono') ?>
+    <?= $form->field($model, 'telefono') ?>
 
-    <?php // echo $form->field($model, 'observacion') ?>
+    <?=  $form->field($model, 'observacion') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Buscar', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reiniciar', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

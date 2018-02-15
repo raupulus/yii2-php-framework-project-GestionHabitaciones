@@ -13,6 +13,11 @@ $config = [
     ],
     'language' => 'es-ES',
     'components' => [
+        'formatter' => [
+            'timeZone' => 'Europe/Madrid',
+            'datetimeFormat' => $params['datetimeFormat'],
+            'dateFormat' => $params['dateFormat'],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'bwJN-5BAnMBgoPoih88xNeyIDgI6Ht5R',
