@@ -55,16 +55,16 @@ class Clientes extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'apellidos' => 'Apellidos',
-            'dni' => 'Dni',
+            'dni' => 'DNI',
             'sexo' => 'Sexo',
-            'fecha_naci' => 'Fecha Naci',
-            'pais' => 'Pais',
+            'fecha_naci' => 'Fecha Nacimiento',
+            'pais' => 'País',
             'provincia' => 'Provincia',
             'ciudad' => 'Ciudad',
-            'cod_postal' => 'Cod Postal',
-            'direccion' => 'Direccion',
-            'telefono' => 'Telefono',
-            'observacion' => 'Observacion',
+            'cod_postal' => 'Cód. Postal',
+            'direccion' => 'Dirección',
+            'telefono' => 'Teléfono',
+            'observacion' => 'Observación',
         ];
     }
 

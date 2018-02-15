@@ -75,6 +75,8 @@ class ClientesSearch extends Clientes
             ->andFilterWhere(['ilike', 'ciudad', $this->ciudad])
             ->andFilterWhere(['ilike', 'direccion', $this->direccion])
             ->andFilterWhere(['ilike', 'observacion', $this->observacion]);
+            //->where(['=', 'telefono', $this->telefono.'%']);
+
 
         return $dataProvider;
     }

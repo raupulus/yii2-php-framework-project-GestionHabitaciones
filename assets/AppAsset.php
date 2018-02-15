@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        'js/jquery-3.3.1.js',
         'js/jquery.leftbar.js',
     ];
     public $depends = [
