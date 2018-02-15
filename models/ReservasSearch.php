@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\models\Reservas;
 
 /**
- * ReservasSearch represents the model behind the search form of `app\models\Reservas`.
+ * ReservasSearch represents the model behind the search form of `\app\models\Reservas`.
  */
 class ReservasSearch extends Reservas
 {
@@ -18,7 +18,7 @@ class ReservasSearch extends Reservas
     public function rules()
     {
         return [
-            [['habitaciones_id', 'clientes_id'], 'integer'],
+            [['id', 'habitaciones_id', 'clientes_id'], 'integer'],
             [['fecha_entrada', 'fecha_salida', 'observacion'], 'safe'],
             [['precio'], 'number'],
         ];
@@ -60,6 +60,7 @@ class ReservasSearch extends Reservas
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'id' => $this->id,
             'habitaciones_id' => $this->habitaciones_id,
             'fecha_entrada' => $this->fecha_entrada,
             'fecha_salida' => $this->fecha_salida,
