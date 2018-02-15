@@ -15,6 +15,8 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
+    <?= $form->field($model, 'id') ?>
+
     <?= $form->field($model, 'habitaciones_id') ?>
 
     <?= $form->field($model, 'fecha_entrada') ?>
@@ -23,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'clientes_id') ?>
 
-    <?= $form->field($model, 'precio') ?>
+    <?php // echo $form->field($model, 'precio') ?>
 
     <?php // echo $form->field($model, 'observacion') ?>
 
