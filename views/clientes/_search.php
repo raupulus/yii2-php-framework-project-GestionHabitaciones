@@ -33,11 +33,11 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'ciudad') ?>
 
-    <?php // echo $form->field($model, 'cod_postal') ?>
+    <?= $form->field($model, 'cod_postal') ?>
 
     <?php // echo $form->field($model, 'direccion') ?>
 
-    <?php // echo $form->field($model, 'telefono') ?>
+    <?= echo $form->field($model, 'telefono') ?>
 
     <?php // echo $form->field($model, 'observacion') ?>
 
