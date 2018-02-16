@@ -12,6 +12,8 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'language' => 'es-ES',
+    'sourceLanguage' => 'es-ES',
+    'name' => 'Gestión Habitaciones',
     'components' => [
         'formatter' => [
             'timeZone' => 'Europe/Madrid',
