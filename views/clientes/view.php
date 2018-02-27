@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'apellidos',
             'dni',
             'sexo',
-            'fecha_naci',
+            'fecha_naci:date',
             'pais',
             'provincia',
             'ciudad',

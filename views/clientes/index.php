@@ -24,10 +24,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-            //'id',
-            'nombre',
-            'apellidos',
+            [
+                'attribute' => 'nombre',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return Html::a($data->nombre, ['clientes/view', 'id' => $data->id], ['class' => 'btn']);
+                    //return $data->titulo;
+                },
+            ],
+            [
+                'attribute' => 'apellidos',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return Html::a($data->apellidos, ['clientes/view', 'id' => $data->id], ['class' => 'btn']);
+                    //return $data->titulo;
+                },
+            ],
             'dni',
             'sexo',
             'fecha_naci:date',
