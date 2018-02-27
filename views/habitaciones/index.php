@@ -16,20 +16,44 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Habitaciones', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Añadir Habitación', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'numero',
-            'descripcion:ntext',
-            'precio_base',
+            //'id',
+            //'numero',
+            [
+                'attribute' => 'numero',
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=>'width: 20px; color: #f00; font-size: 1.4em',
+                ],
+            ],
             'nombre',
+            'descripcion:ntext',
+            'precio_base:currency',
+            //'disponible',
+            [
+                'label' => 'Disponible',
+                'format' => 'raw',
+
+                // En la función → $model vale el 'id' y $key la posición
+                'value' => function($model, $key) {
+                    if($model->estalibre()){
+                        return 'Si';
+                    }
+                    return 'No';
+                },
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=>'width: 20px; color: #f00; font-size: 1.4em',
+                ],
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

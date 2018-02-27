@@ -14,14 +14,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'numero')->textInput() ?>
 
-    <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'precio_base')->textInput() ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'disponible')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
