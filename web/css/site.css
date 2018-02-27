@@ -16,14 +16,17 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
+    color: #00AA88;
+    background-color: #2a2730;
+    border-top: 1px solid #00AA88;
     padding-top: 20px;
 }
 
 .jumbotron {
+    color: #f89406;
     text-align: center;
     background-color: transparent;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .jumbotron .btn {
@@ -90,10 +93,23 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+.navbar {
+ min-height: 80px;
+}
+
+nav li.active {
+    background-color: #a94442;
+}
+
+nav.navbar ul.nav {
+    border-bottom: 3px solid white;
+}
+
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding: 15px;
     border: none;
+
 }
 
 @media(max-width:767px) {
