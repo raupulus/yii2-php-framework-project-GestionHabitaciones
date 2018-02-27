@@ -76,4 +76,18 @@ class Reservas extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Habitaciones::className(), ['id' => 'habitaciones_id']);
     }
+
+    /**
+     * Devuelve la cantidad de días que ha reservado o un string con N/D
+     * @return mixed Integer/String
+     */
+    public function diasReservados()
+    {
+        // TODO → Función solo planteada, no se espera que funcione
+        if ($this->fecha_salida) {
+            return $this->fecha_salida - $this->fecha_entrada;
+        }
+
+        return 'N/D';
+    }
 }
