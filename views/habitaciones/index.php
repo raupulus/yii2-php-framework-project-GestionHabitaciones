@@ -23,39 +23,41 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            //'id',
-            //'numero',
             [
                 'attribute' => 'numero',
                 'contentOptions' => [
                     'class' => 'text-center',
-                    'style'=>'width: 20px; color: #f00; font-size: 1.4em',
+                    'style'=> 'width: 20px; color: #f00; font-size: 1.4em',
                 ],
             ],
-            'nombre',
+            [
+                'label' => 'Nombre',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a($model->nombre, ['habitaciones/view', 'id' => $model->id]);
+                },
+                'contentOptions' => [
+                    'class' => 'text-center',
+                ],
+            ],
             'descripcion:ntext',
             'precio_base:currency',
-            //'disponible',
             [
                 'label' => 'Disponible',
                 'format' => 'raw',
 
-                // En la función → $model vale el 'id' y $key la posición
-                'value' => function($model, $key) {
+                'value' => function($model) {
                     if($model->estalibre()){
+                        // TODO → Redirigir a reservas/create pasándole el ID
                         return 'Si';
                     }
                     return 'No';
                 },
                 'contentOptions' => [
                     'class' => 'text-center',
-                    'style'=>'width: 20px; color: #f00; font-size: 1.4em',
+                    'style'=> 'width: 20px; color: #f00; font-size: 1.2em',
                 ],
             ],
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

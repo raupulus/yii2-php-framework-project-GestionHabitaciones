@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fecha_naci')->textInput() ?>
 
-    <?= $form->field($model, 'pais')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'pais')->textInput(['value' => 'ESPAÑA','maxlength' => true]) ?>
 
     <?= $form->field($model, 'provincia')->textInput(['maxlength' => true]) ?>
 
