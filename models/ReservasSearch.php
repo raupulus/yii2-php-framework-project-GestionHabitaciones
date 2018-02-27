@@ -48,6 +48,9 @@ class ReservasSearch extends Reservas
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            // Ordeno de forma descendiente por ID para tener arriba
+            // las nuevas reservas
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
         ]);
 
         $this->load($params);

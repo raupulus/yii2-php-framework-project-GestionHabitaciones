@@ -48,6 +48,7 @@ class HabitacionesSearch extends Habitaciones
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder' => ['numero' => SORT_ASC]],
         ]);
 
         $this->load($params);

@@ -62,6 +62,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'fecha_entrada:date',
             'fecha_salida:date',
             //'observacion:ntext',
+            [
+                'label' => 'Días',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    $dias = $data->diasReservados();
+                    return $dias;
+                },
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; font-size: 1.2em;',
+                ],
+            ],
         ],
     ]); ?>
 </div>
