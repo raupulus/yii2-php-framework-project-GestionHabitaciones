@@ -16,24 +16,52 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Reservas', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Nueva Reserva', ['create'], ['class' => 'btn 
+        btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            [
+                'attribute' => 'id',
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; color: #f00; font-size: 1.2em;',
+                ],
+            ],
+            [
+                'label' => 'Nº Hab.',
+                'format' => 'raw',
+                'value' => function ($data) {
+                $habitacion = \app\models\Habitaciones::findOne($data->habitaciones_id);
 
-            'id',
-            'habitaciones_id',
-            'fecha_entrada',
-            'fecha_salida',
-            'clientes_id',
-            //'precio',
+                return Html::a($habitacion->numero, ['habitaciones/view', 'id' => $habitacion->id]);
+                },
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; color: #f00; font-size: 1.2em;',
+                ],
+            ],
+            [
+                'label' => 'Cliente',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    $usuario = \app\models\Clientes::findOne
+                    ($data->clientes_id);
+
+                    return Html::a($usuario->nombre, ['clientes/view', 'id' => $usuario->id]);
+                },
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; font-size: 1.2em;',
+                ],
+            ],
+            'precio:currency',
+            'fecha_entrada:date',
+            'fecha_salida:date',
             //'observacion:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

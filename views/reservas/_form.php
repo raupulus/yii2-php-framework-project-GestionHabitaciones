@@ -14,11 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'habitaciones_id')->textInput() ?>
 
+    <?= $form->field($model, 'clientes_id')->textInput() ?>
+
     <?= $form->field($model, 'fecha_entrada')->textInput() ?>
 
     <?= $form->field($model, 'fecha_salida')->textInput() ?>
-
-    <?= $form->field($model, 'clientes_id')->textInput() ?>
 
     <?= $form->field($model, 'precio')->textInput() ?>
 

@@ -51,12 +51,13 @@ class Reservas extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'habitaciones_id' => 'Habitaciones ID',
-            'fecha_entrada' => 'Fecha Entrada',
-            'fecha_salida' => 'Fecha Salida',
-            'clientes_id' => 'Clientes ID',
+            'id' => 'Reserva ID',
+            'habitaciones_id' => 'Habitación ID',
+            'clientes_id' => 'Cliente ID',
+            'fecha_entrada' => 'Entrada',
+            'fecha_salida' => 'Salida',
             'precio' => 'Precio',
-            'observacion' => 'Observacion',
+            'observacion' => 'Observación',
         ];
     }
 
