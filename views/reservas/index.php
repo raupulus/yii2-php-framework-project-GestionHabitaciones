@@ -26,6 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'attribute' => 'id',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a($model->id, ['reservas/view', 'id' => $model->id]);
+                },
                 'contentOptions' => [
                     'class' => 'text-center',
                     'style'=> 'width: 10px; color: #f00; font-size: 1.2em;',
@@ -58,22 +62,38 @@ $this->params['breadcrumbs'][] = $this->title;
                     'style'=> 'width: 10px; font-size: 1.2em;',
                 ],
             ],
-            'precio:currency',
-            'fecha_entrada:date',
-            'fecha_salida:date',
-            //'observacion:ntext',
             [
-                'label' => 'Días',
-                'format' => 'raw',
-                'value' => function ($data) {
-                    $dias = $data->diasReservados();
-                    return $dias;
-                },
+                'attribute' => 'precio',
+                'format' => ['currency'],
                 'contentOptions' => [
                     'class' => 'text-center',
-                    'style'=> 'width: 10px; font-size: 1.2em;',
+                    'style'=> 'width: 10px; font-size: 1.1em;',
                 ],
             ],
+            [
+                'attribute' => 'fecha_entrada',
+                'format' => ['date'],
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; font-size: 1.1em;',
+                ],
+            ],
+            [
+                'attribute' => 'fecha_salida',
+                'format' => ['date'],
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; font-size: 1.1em;',
+                ],
+            ],
+            [
+                'attribute' => 'dias',
+                'contentOptions' => [
+                    'class' => 'text-center',
+                    'style'=> 'width: 10px; color: #f00; font-size: 1.2em;',
+                ],
+            ],
+            'observacion',
         ],
     ]); ?>
 </div>

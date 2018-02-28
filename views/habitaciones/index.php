@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ],
             [
-                'label' => 'Nombre',
+                'attribute' => 'nombre',
                 'format' => 'raw',
                 'value' => function($model) {
                     return Html::a($model->nombre, ['habitaciones/view', 'id' => $model->id]);

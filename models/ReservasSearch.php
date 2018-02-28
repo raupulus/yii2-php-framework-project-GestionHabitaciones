@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use const SORT_DESC;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -50,7 +51,9 @@ class ReservasSearch extends Reservas
             'query' => $query,
             // Ordeno de forma descendiente por ID para tener arriba
             // las nuevas reservas
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
+            'sort' => [
+                'defaultOrder' => ['id' => SORT_DESC],
+            ],
         ]);
 
         $this->load($params);
@@ -64,13 +67,15 @@ class ReservasSearch extends Reservas
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'habitaciones_id' => $this->habitaciones_id,
+            'habitaciones'=>$this->habitaciones,
+            //'habitaciones_id' => $this->habitaciones_id,
             'fecha_entrada' => $this->fecha_entrada,
             'fecha_salida' => $this->fecha_salida,
-            'clientes_id' => $this->clientes_id,
+            //'clientes_id' => $this->clientes_id,
             'precio' => $this->precio,
         ]);
 
+        $query->andFilterWhere(['ilike', 'clientes', $this->clientes]);
         $query->andFilterWhere(['ilike', 'observacion', $this->observacion]);
 
         return $dataProvider;

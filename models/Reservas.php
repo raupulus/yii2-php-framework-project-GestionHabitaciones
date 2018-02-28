@@ -33,6 +33,7 @@ class Reservas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['habitaciones, clientes, dias'], 'safe'],
             [['habitaciones_id', 'fecha_entrada', 'fecha_salida'], 'required'],
             [['habitaciones_id', 'clientes_id'], 'default', 'value' => null],
             [['habitaciones_id', 'clientes_id'], 'integer'],
@@ -52,6 +53,9 @@ class Reservas extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'Reserva ID',
+            'habitaciones' => 'Habitación',
+            'clientes' => 'Clientes',
+            'dias' => 'Días',
             'habitaciones_id' => 'Habitación ID',
             'clientes_id' => 'Cliente ID',
             'fecha_entrada' => 'Entrada',
@@ -79,15 +83,15 @@ class Reservas extends \yii\db\ActiveRecord
 
     /**
      * Devuelve la cantidad de días que ha reservado o un string con N/D
-     * @return mixed Integer/String
+     * @return mixed Integer
      */
-    public function diasReservados()
+    public function getDias()
     {
         // TODO → Función solo planteada, no se espera que funcione
         if ($this->fecha_salida) {
-            return $this->fecha_salida - $this->fecha_entrada;
+            return (int)($this->fecha_salida - $this->fecha_entrada);
         }
 
-        return 'N/D';
+        return (int)0;
     }
 }
