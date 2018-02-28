@@ -16,6 +16,7 @@ $config = require __DIR__ . '/../config/web.php';
 
 (new yii\web\Application($config))->run();
 
+/*
 echo '<script>$.leftbar({}, [
                 [\'Menú1\',\'./images/1.jpg\',\'#\'],
                 [\'Menú2\',\'./images/2.jpg\',\'#\'],
@@ -24,3 +25,4 @@ echo '<script>$.leftbar({}, [
                 [\'Menú5\',\'./images/5.jpg\',\'#\'],
                 [\'Menú6\',\'./images/6.jpg\',\'http://www.fryntiz.es\'],
             ]);</script>';
+*/
