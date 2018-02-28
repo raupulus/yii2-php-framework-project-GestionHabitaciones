@@ -21,7 +21,7 @@ CREATE TABLE clientes (
     , apellidos    VARCHAR(255)
     , dni          VARCHAR(255)
     , sexo         VARCHAR(255)
-    , fecha_naci   DATE
+    , fecha_naci   TIMESTAMP(0)
     , pais         VARCHAR(255)
     , provincia    VARCHAR(255)
     , ciudad       VARCHAR(255)
@@ -38,12 +38,12 @@ CREATE TABLE clientes (
 ------------------------------
 DROP TABLE IF EXISTS habitaciones CASCADE; --Elimina la tabla si existiera
 CREATE TABLE habitaciones (
-    id            BIGSERIAL
-                CONSTRAINT pk_habitaciones PRIMARY KEY,
-    numero        NUMERIC(30),
-    descripcion    TEXT,
-    precio_base    DECIMAL(12,2),
-    nombre        VARCHAR(255)
+      id           BIGSERIAL
+                   CONSTRAINT pk_habitaciones PRIMARY KEY
+    , numero       NUMERIC(10)
+    , descripcion  TEXT
+    , precio_base  DECIMAL(8,2)
+    , nombre       VARCHAR(255)
 );
 
 --------------------------
@@ -52,16 +52,16 @@ CREATE TABLE habitaciones (
 DROP TABLE IF EXISTS reservas CASCADE; --Elimina la tabla si existiera
 CREATE TABLE reservas (
       id               BIGSERIAL UNIQUE
-    , habitaciones_id     BIGINT
-                      CONSTRAINT fk_reservas_habitaciones
-                      REFERENCES habitaciones(id)
-    , fecha_entrada         DATE
-    , fecha_salida          DATE
-    , clientes_id         BIGINT
-                      CONSTRAINT fk_reservas_clientes
-                      REFERENCES clientes(id)
-    , precio             DECIMAL(12,2)
-    , observacion           TEXT
+    , habitaciones_id  BIGINT
+                       CONSTRAINT fk_reservas_habitaciones
+                       REFERENCES habitaciones(id)
+    , fecha_entrada    TIMESTAMP(0)
+    , fecha_salida     TIMESTAMP(0)
+    , clientes_id      BIGINT
+                       CONSTRAINT fk_reservas_clientes
+                       REFERENCES clientes(id)
+    , precio           DECIMAL(12,2)
+    , observacion      TEXT
     , created_at       TIMESTAMP(0)
     , updated_at       TIMESTAMP(0)
 
