@@ -43,19 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'descripcion:ntext',
             'precio_base:currency',
             [
-                'label' => 'Disponible',
+                'attribute' => 'disponible',
                 'format' => 'raw',
-
-                'value' => function($model) {
-                    if($model->estalibre()){
-                        // TODO → Redirigir a reservas/create pasándole el ID
-                        return 'Si';
-                    }
-                    return 'No';
-                },
                 'contentOptions' => [
-                    'class' => 'text-center',
-                    'style'=> 'width: 20px; color: #f00; font-size: 1.2em',
+                    'style'=> 'width: 130px; color: #f00; font-size: 1.1em',
                 ],
             ],
         ],

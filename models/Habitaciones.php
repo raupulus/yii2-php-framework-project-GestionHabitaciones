@@ -2,7 +2,9 @@
 
 namespace app\models;
 
+use function var_dump;
 use Yii;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "habitaciones".
@@ -17,11 +19,6 @@ use Yii;
  */
 class Habitaciones extends \yii\db\ActiveRecord
 {
-    /**
-     * @var $disponible Devuelve si está disponible
-     */
-    public $disponible;
-
     /**
      * @inheritdoc
      */
@@ -54,7 +51,7 @@ class Habitaciones extends \yii\db\ActiveRecord
             'descripcion' => 'Descripción',
             'precio_base' => 'Precio Base',
             'nombre' => 'Nombre',
-            'disponible' => 'Libre'
+            'disponiblehoy' => 'Disponible Hoy'
         ];
     }
 
@@ -71,8 +68,54 @@ class Habitaciones extends \yii\db\ActiveRecord
      * Comprueba si una instancia de habitación está libre
      * @return bool
      */
-    public function estalibre()
+    public function getDisponible()
     {
-        return ! $this->disponible;
+        $hoy = date("Y-m-d",strtotime(date("Y-m-d")));
+        $manana = date("Y-m-d",(strtotime(date("Y-m-d")) + 86400));
+        $pasado = date("Y-m-d",(strtotime(date("Y-m-d")) + 86400*2));
+
+        $reservas = \app\models\Reservas::find();
+
+        $rHoy = $reservas
+            ->where(['<=', 'fecha_entrada', $hoy])
+            ->andFilterWhere(['>=', 'fecha_salida', $hoy])
+            ->andFilterWhere([
+                'habitaciones_id' => $this->id,
+            ])->count();
+
+        $rManana = $reservas
+            ->where(['<=', 'fecha_entrada', $manana])
+            ->andFilterWhere(['>=', 'fecha_salida', $manana])
+            ->andFilterWhere([
+                'habitaciones_id' => $this->id,
+            ])->count();
+
+        $pasado = $reservas
+            ->where(['<=', 'fecha_entrada', $pasado])
+            ->andFilterWhere(['>=', 'fecha_salida', $pasado])
+            ->andFilterWhere([
+                'habitaciones_id' => $this->id,
+            ])->count();
+
+
+        $pintar = '';
+        if ($rHoy != 0) {
+            $pintar .= 'Hoy → NO';
+        } else {
+            $pintar .= 'Hoy → SI';
+        }
+        if ($rManana != 0) {
+            $pintar .= '<br/>Mañana →  NO';
+        } else {
+            $pintar .= '<br/>Mañana → SI';
+        }
+        if ($pasado != 0) {
+            $pintar .= '<br/>Pasado → NO';
+        } else {
+            $pintar .= '<br/>Pasado → SI';
+        }
+
+
+        return $pintar;
     }
 }

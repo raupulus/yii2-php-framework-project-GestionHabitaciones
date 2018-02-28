@@ -34,15 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'descripcion:ntext',
             'precio_base:currency',
             [
-                'label' => 'Disponible',
+                'attribute' => 'disponible',
                 'format' => 'raw',
-
-                'value' => function($model) {
-                    if($model->estalibre()){
-                        return 'Si';
-                    }
-                    return 'No';
-                },
             ],
         ],
     ]) ?>
