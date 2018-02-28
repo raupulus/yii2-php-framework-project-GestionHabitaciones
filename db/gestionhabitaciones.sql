@@ -68,3 +68,16 @@ CREATE TABLE reservas (
     , CONSTRAINT pk_reservas PRIMARY KEY (habitaciones_id, fecha_entrada, fecha_salida)
 );
 
+--------------------------
+---Crear Tabla Usuarios---
+--------------------------
+DROP TABLE IF EXISTS usuarios CASCADE;
+CREATE TABLE usuarios (
+    id            bigserial    PRIMARY KEY
+  , nombre        varchar(255) NOT NULL UNIQUE
+  , email         varchar(255) NOT NULL UNIQUE
+  , password      varchar(255) NOT NULL
+  , created_at    timestamp(0) DEFAULT current_timestamp
+  , updated_at    timestamp(0)
+  , auth_key      varchar(255)
+);
