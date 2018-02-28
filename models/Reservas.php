@@ -82,16 +82,15 @@ class Reservas extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve la cantidad de días que ha reservado o un string con N/D
+     * Devuelve la cantidad de días que ha reservado.
      * @return mixed Integer
      */
     public function getDias()
     {
-        // TODO → Función solo planteada, no se espera que funcione
-        if ($this->fecha_salida) {
-            return (int)($this->fecha_salida - $this->fecha_entrada);
-        }
+        $f1 = $this->fecha_entrada;
+        $f2 = $this->fecha_salida;
+        $dias = abs((strtotime($f1) - strtotime($f2))/86400);
 
-        return (int)0;
+        return $dias;
     }
 }
