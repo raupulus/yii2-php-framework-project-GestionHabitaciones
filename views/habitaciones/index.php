@@ -42,6 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'descripcion:ntext',
             'precio_base:currency',
+            /*
             [
                 'attribute' => 'disponible',
                 'format' => 'raw',
@@ -49,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'style'=> 'width: 130px; color: #f00; font-size: 1.1em',
                 ],
             ],
+            */
         ],
     ]); ?>
 </div>
