@@ -1,3 +1,5 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/fryntiz/GestionHabitaciones.svg?columns=all)](https://waffle.io/fryntiz/GestionHabitaciones)
+
 # GestionHabitaciones
 Proyecto para gestionar habitaciones. Desarrollado con el framework yii 2, bootstrap y jquery
 
