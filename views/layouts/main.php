@@ -38,9 +38,16 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Inicio', 'url' => ['/site/index']],
+            ['label' => 'Clientes',
+             'items' => [
+                ['label' => 'Ver Todos', 'url' => ['/clientes/index']],
+                ['label' => 'Crear Nuevo', 'url' => ['/clientes/create']],
+            ]],
+            ['label' => 'Habitaciones', 'url' => ['/habitaciones/index']],
+            ['label' => 'Reservas', 'url' => ['/reservas/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Contacto', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -69,9 +76,10 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">
+            &copy; Creado por <a href="http://www.fryntiz.es" title="Raúl Caro Pastorino, Desarrollador WEB">Raúl Caro Pastorino</a>
+            (<?= date('Y') ?>)
+        </p>
     </div>
 </footer>
 
