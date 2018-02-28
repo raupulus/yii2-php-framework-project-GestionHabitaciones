@@ -241,3 +241,56 @@ VALUES
     'No hay datos'
   )
 ;
+
+--------------------------------------
+---Insertar Datos en tabla usuarios---
+--------------------------------------
+INSERT INTO usuarios (nombre, email, password) VALUES
+  (
+    'pepe'
+    , 'elmagopepe@hagomagia.com'
+    , crypt('pepe', gen_salt('bf', 13))
+  )
+  , (
+    'María'
+    , 'cespetro@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+
+  , (
+    'Raúl'
+    , 'asicolov@calinks.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+
+  , (
+    'Juan'
+    , 'bunene@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+  , (
+    'Ana'
+    , 'tomahop@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+  , (
+    'Rodolfo'
+    , 'colirio@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+  , (
+    'Calcetín'
+    , 'sentao@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+  , (
+    'Pepa'
+    , 'curricam@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+  , (
+    'Marisol'
+    , 'tomatero@soplahojas.com'
+    , crypt('1234', gen_salt('bf', 13))
+  )
+;
