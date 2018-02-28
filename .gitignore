@@ -1,8 +1,8 @@
 # phpstorm project files
-.idea
+/.idea
 
 # netbeans project files
-nbproject
+/nbproject
 
 # zend studio for eclipse project files
 .buildpath
@@ -28,5 +28,3 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
-
-composer.lock
