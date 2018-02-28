@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS clientes CASCADE; --Elimina la tabla si existiera
 CREATE TABLE clientes (
       id           BIGSERIAL
                    CONSTRAINT pk_clientes PRIMARY KEY
-    , nombre       VARCHAR(255)
+    , nombre       VARCHAR(255) NOT NULL
     , apellidos    VARCHAR(255)
     , dni          VARCHAR(255)
     , sexo         VARCHAR(255)
@@ -27,9 +27,9 @@ CREATE TABLE clientes (
     , ciudad       VARCHAR(255)
     , cod_postal   NUMERIC(30)
     , direccion    VARCHAR(255)
-    , telefono     NUMERIC(30)
+    , telefono     NUMERIC(30)  NOT NULL
     , observacion  TEXT
-    , created_at   TIMESTAMP(0)
+    , created_at   TIMESTAMP(0) DEFAULT current_timestamp
     , updated_at   TIMESTAMP(0)
 );
 
@@ -40,10 +40,10 @@ DROP TABLE IF EXISTS habitaciones CASCADE; --Elimina la tabla si existiera
 CREATE TABLE habitaciones (
       id           BIGSERIAL
                    CONSTRAINT pk_habitaciones PRIMARY KEY
-    , numero       NUMERIC(10)
+    , numero       NUMERIC(10)  NOT NULL
+    , nombre       VARCHAR(255) NOT NULL
+    , precio_base  DECIMAL(8,2) NOT NULL
     , descripcion  TEXT
-    , precio_base  DECIMAL(8,2)
-    , nombre       VARCHAR(255)
 );
 
 --------------------------
@@ -62,7 +62,7 @@ CREATE TABLE reservas (
                        REFERENCES clientes(id)
     , precio           DECIMAL(12,2)
     , observacion      TEXT
-    , created_at       TIMESTAMP(0)
+    , created_at       TIMESTAMP(0) DEFAULT current_timestamp
     , updated_at       TIMESTAMP(0)
 
     , CONSTRAINT pk_reservas PRIMARY KEY (habitaciones_id, fecha_entrada, fecha_salida)
